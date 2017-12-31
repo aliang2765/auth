@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    image: aliang2765/apache-php-fpm
+    volumes:
+      - .:/var/www/html
+    tty: true
+    depends_on:
+      - db
+    ports:
+      - "8888:80"
+
+  db:
+    image: mariadb:10.2
+    ports:
+      - 33066:3306
+    volumes:
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
