@@ -2,7 +2,7 @@ version: "3"
 
 services:
   web:
-    image: aliang2765/apache-php-fpm
+    image: andybelle/apache-php-fpm
     volumes:
       - .:/var/www/html
     tty: true
